@@ -1,7 +1,23 @@
+hermes_name_of_training: str = 'training'
+hermes_name_of_validation: str = 'validation'
+
+
+def get_validation() -> str:
+    global hermes_name_of_validation
+    return hermes_name_of_validation
+
+
+def get_training() -> str:
+    global hermes_name_of_training
+    return hermes_name_of_training
 
 
 class HermesDatasetSettings:
     def __init__(self):
+        global \
+            hermes_name_of_training, \
+            hermes_name_of_validation
+
         self.width = 500
         self.height = 500
 
@@ -9,21 +25,18 @@ class HermesDatasetSettings:
         self.batch_size = 20
 
         self.seeds = {
-            "training": -1,
-            "validation": -1,
-            "test": -1
+            hermes_name_of_training: -1,
+            hermes_name_of_validation: -1,
         }
 
         self.shuffle = {
-            "training": True,
-            "validation": True,
-            "test": True
+            hermes_name_of_training: True,
+            hermes_name_of_validation: True
         }
 
         self.crop_aspect_rate = {
-            "training": True,
-            "validation": True,
-            "test": True
+            hermes_name_of_training: True,
+            hermes_name_of_validation: True
         }
 
         self.class_mode = None
